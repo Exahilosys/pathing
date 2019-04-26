@@ -6,9 +6,7 @@ with open('README.md') as file:
 
 name = 'pathing'
 
-module = __import__(name)
-
-version = module.__version__
+version = '0.1.1'
 
 author = 'Exahilosys'
 
