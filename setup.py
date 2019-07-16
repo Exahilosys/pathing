@@ -6,7 +6,7 @@ with open('README.md') as file:
 
 name = 'pathing'
 
-version = '0.1.2'
+version = '0.1.3'
 
 author = 'Exahilosys'
 

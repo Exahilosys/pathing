@@ -4,7 +4,10 @@ import collections
 __all__ = ('derive',)
 
 
-def derive(root, old = None, get = None, min = - 1, max = float('inf')):
+_top = float('inf')
+
+
+def derive(root, old = None, get = None, min = - _top, max = _top):
 
     if old is None:
 
@@ -12,23 +15,23 @@ def derive(root, old = None, get = None, min = - 1, max = float('inf')):
 
     length = len(old)
 
-    if length > max:
-
-        return
-
     if not get is None:
 
         root = get(root, old)
 
     if not length < min:
 
-        yield old, root
+        yield (old, root)
 
     if not isinstance(root, collections.Mapping):
 
         return
 
-    for key, value in root.items():
+    if length + 1 > max:
+
+        return
+
+    for (key, value) in root.items():
 
         new = old + (key,)
 
